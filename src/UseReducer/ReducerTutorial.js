@@ -1,12 +1,14 @@
-import React, { useReducer } from "react";
-import { Button } from "@capgeminiuk/dcx-react-library";
+import React, { useReducer } from 'react';
+import { Button } from '@capgeminiuk/dcx-react-library';
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "INCREMENT":
+    case 'INCREMENT':
       return { ...state, count: state.count + 1 };
-    case "toggleShowText":
+    case 'toggleShowText':
       return { ...state, showText: !state.showText };
+    case 'RESET':
+      return { ...state, count: 0 }
     default:
       return state;
   }
@@ -21,8 +23,14 @@ const ReducerTutorial = () => {
       <Button
         label="Click Here"
         onClick={() => {
-          dispatch({ type: "INCREMENT" });
-          dispatch({ type: "toggleShowText" });
+          dispatch({ type: 'INCREMENT' });
+          dispatch({ type: 'toggleShowText' });
+        }}
+      />
+      <Button
+        label="Reset"
+        onClick={() => {
+          dispatch({ type: 'RESET' });
         }}
       />
       {state.showText && <p>This is a text</p>}
