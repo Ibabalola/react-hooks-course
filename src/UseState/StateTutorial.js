@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FormInput } from "@capgeminiuk/dcx-react-library";
 
 const StateTutorial = () => {
   const [inputValue, setInputValue] = useState("Pedro");
@@ -10,7 +11,7 @@ const StateTutorial = () => {
 
   return (
     <div>
-      <input placeholder="enter something..." onChange={onChange} />
+      <FormInput placeholder="enter text" onChange={onChange}/>
       {inputValue}
     </div>
   );
